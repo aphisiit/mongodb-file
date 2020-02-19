@@ -2,7 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 <h1>View Photo</h1>
-    Title: <span th:text="${title}">name</span>
-    <img alt="sample" th:src="*{'data:image/png;base64,' + image}" />
+    <div>
+        Title: <span th:text="${title}">name</span>
+    </div>
+    <div>
+        <img alt="sample" th:src="*{'data:image/png;base64,' + image}" />
+    </div>
 </body>
 </html>
