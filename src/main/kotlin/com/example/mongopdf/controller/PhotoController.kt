@@ -15,11 +15,6 @@ class PhotoController {
     @Autowired
     private lateinit var photoService: PhotoService
 
-    @GetMapping("/")
-    fun index() : String {
-        return "uploadPhoto"
-    }
-
     @PostMapping("/add")
     fun addPhoto(@RequestParam("title") title: String,
                  @RequestParam("image") image: MultipartFile, model: Model) : String {

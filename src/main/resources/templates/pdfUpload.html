@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a href="/pdf/">List all pdf file</a>
+</div>
+<div>
+    <a href="/pdf/upload">Upload pdf file</a>
+</div>
+<h1>Upload new Pdf</h1>
+<form method="POST" action="/pdf/add" enctype="multipart/form-data">
+    Title :<input type="text" name="title" />
+    File :<input type="file" name="pdf" accept="application/pdf" />
+    <input type="submit" value="Upload" />
+</form>
+</body>
+</html>

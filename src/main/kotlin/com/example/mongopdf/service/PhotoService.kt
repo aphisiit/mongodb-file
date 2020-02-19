@@ -21,6 +21,7 @@ class PhotoServiceImpl : PhotoService {
 
     override fun addPhoto(title: String, file: MultipartFile): String? {
         var photo = Photo()
+        photo.title = title
         photo.image = Binary(BsonBinarySubType.BINARY,file.bytes)
         photo = photoRepository.insert(photo)
         return photo.id

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pdf File Detail</title>
+</head>
+<body>
+<div>
+    <a href="/pdf/">List all pdf file</a>
+</div>
+<div>
+    <a href="/pdf/upload">Upload pdf file</a>
+</div>
+<div>
+    Title: <span th:text="${title}">name</span>
+</div>
+<div>
+    <embed th:src="*{'data:application/pdf;base64,' + pdfFile}" width="800px" height="2100px" />
+</div>
+</body>
+</html>
