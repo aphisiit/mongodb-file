@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pdf File</title>
+</head>
+<body>
+    <div>
+        <a href="/pdf/">List all pdf file</a>
+    </div>
+    <div>
+        <a href="/pdf/upload">Upload pdf file</a>
+    </div>
+    <table border="1">
+        <thead>
+            <td>string_id</td>
+            <td>File name</td>
+            <td>Link Detail</td>
+        </thead>
+        <tbody>
+            <tr th:each="pdf : ${listPdf}">
+                <td th:text="${pdf.id}"></td>
+                <td th:text="${pdf.title}"></td>
+                <td><a th:href="@{'/pdf/' + ${pdf.id}}">click</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
