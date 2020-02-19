@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Upload new Photo</h1>
+<form method="POST" action="/photo/add" enctype="multipart/form-data">
+    Title:<input type="text" name="title" />
+    Image:<input type="file" name="image" accept="image/*" />
+    <input type="submit" value="Upload" />
+</form>
+</body>
+</html>
