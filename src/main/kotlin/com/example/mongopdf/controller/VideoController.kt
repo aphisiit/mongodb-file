@@ -17,6 +17,11 @@ class VideoController {
     @Autowired
     private lateinit var videoService: VideoService
 
+    @GetMapping("/")
+    fun uploadVideo() : String {
+        return "uploadVideo"
+    }
+
     @PostMapping("/add")
     fun addVideo(@RequestParam("title") title: String, @RequestParam("file") file: MultipartFile, model: Model) : String {
         val id = videoService.addVideo(title,file)
@@ -27,8 +32,8 @@ class VideoController {
     fun  getVideo(@PathVariable id: String,model : Model) : String {
         val video: Video = videoService.getVideo(id)
         model.addAttribute("title",video.title)
-        model.addAttribute("url", "/videos/stream/$id");
-        return "videos";
+        model.addAttribute("url", "/video/stream/$id");
+        return "video"
     }
 
     @GetMapping("/stream/{id}")
