@@ -1,4 +1,4 @@
-version: "2.1"
+version: "2.3"
 services:
   mongo:
     image: mongo:latest
@@ -21,7 +21,7 @@ services:
   #     - mongo
     
 # APP  ***************************************************************************************
-  spring-boot-mongo-docker:
+  application-mongo:
     image: aphisiit/kotlin-mongo-pdf
     ports:
       - 8080:8080

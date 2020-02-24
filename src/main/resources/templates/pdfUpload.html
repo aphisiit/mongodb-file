@@ -11,11 +11,29 @@
 <div>
     <a href="/pdf/upload">Upload pdf file</a>
 </div>
+<div>
 <h1>Upload new Pdf</h1>
 <form method="POST" action="/pdf/add" enctype="multipart/form-data">
     Title :<input type="text" name="title" />
     File :<input type="file" name="pdf" accept="application/pdf" />
     <input type="submit" value="Upload" />
 </form>
+</div>
+<div>
+    <h1>Upload new 10k Pdf</h1>
+    <form method="POST" action="/pdf/add10k" enctype="multipart/form-data">
+        Title :<input type="text" name="title" />
+        File :<input type="file" name="pdf" accept="application/pdf" />
+        <input type="submit" value="Upload" />
+    </form>
+</div>
+<div>
+    <h1>Upload new 100k Pdf</h1>
+    <form method="POST" action="/pdf/add100k" enctype="multipart/form-data">
+        Title :<input type="text" name="title" />
+        File :<input type="file" name="pdf" accept="application/pdf" />
+        <input type="submit" value="Upload" />
+    </form>
+</div>
 </body>
 </html>
