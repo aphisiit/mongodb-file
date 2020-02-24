@@ -13,10 +13,11 @@ Run Mongo in Docker
 
 Run Application With MongoDB on Docker
 -
-1. Build your project with command  
+- Build your project with command  
 `$ gradle package`
-2. Build your docker file  
+- Build your docker images (Make it sure in spring.profile.active=docker in application.yaml file)  
 `$ docker build -t aphisiit/kotlin-mongo-pdf -f DockerFile .`
-3. Run docker compose  
+- Run docker-compose  
 `$ docker-compose up`
-4. Open link http://localhost:8080/pdf/
+- Url Default  
+http://localhost:8080/pdf/
