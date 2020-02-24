@@ -20,7 +20,7 @@ class PdfController {
     @Autowired
     private lateinit var pdfFileService: PdfFileService
 
-    @GetMapping("/")
+    @GetMapping
     fun findAllPdf(model: Model) : String{
         var listPdf = pdfFileService.findAllPdf()
         model.addAttribute("listPdf",listPdf)
@@ -35,15 +35,17 @@ class PdfController {
     @PostMapping("/add")
     fun addPhoto(@RequestParam("title") title: String,
                  @RequestParam("pdf") file: MultipartFile, model: Model) : String {
+        logger.info("add pdf file from title : $title")
         val id = pdfFileService.addPdfFile(title,file)
         return "redirect:/pdf/$id"
     }
 
     @GetMapping("/{id}")
     fun getPhoto(@PathVariable id: String, model: Model) : String {
-        val photo = pdfFileService.getPdfFile(id)
-        model.addAttribute("title",photo.title)
-        model.addAttribute("pdfFile", Base64.getEncoder().encodeToString(photo.file?.data))
+        logger.info("Get Pdf file from id : $id")
+        val pdf = pdfFileService.getPdfFile(id)
+        model.addAttribute("title",pdf.title)
+        model.addAttribute("pdfFile", Base64.getEncoder().encodeToString(pdf.file?.data))
         return "pdf"
     }
 
@@ -75,5 +77,12 @@ class PdfController {
             logger.error("$e")
         }
         return "redirect:/pdf/$id"
+    }
+
+    @GetMapping("delete/{id}")
+    fun deletePdfFile(@PathVariable id: String) : String{
+        logger.info("delete id : $id")
+        pdfFileService.deletePdfFile(id)
+        return "redirect:/pdf"
     }
 }
